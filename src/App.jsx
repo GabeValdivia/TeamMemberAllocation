@@ -3,11 +3,11 @@ import './App.css';
 import Header from './Header';
 import Employees from './Employees';
 import Footer from './Footer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
 
-  const [selectedTeam, setTeam] = useState("TeamB");
+  const [selectedTeam, setTeam] = useState(JSON.parse(localStorage.getItem('selectedTeam')) || "TeamB");
 
   const [employees, setEmployees] = useState([{
     id: 1,
@@ -93,6 +93,18 @@ function App() {
     gender: "male",
     teamName: "TeamD"
   }]);
+
+  useEffect(() => {
+
+    localStorage.setItem('employeeList', JSON.stringify(employees));
+
+  }, [employees]);
+
+  useEffect(() => {
+
+    localStorage.setItem('selectedTeam', JSON.stringify(selectedTeam));
+
+  }, [selectedTeam]);
 
   function handleTeamSelectionChange(event) {
     setTeam(event.target.value);
