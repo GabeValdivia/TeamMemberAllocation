@@ -1,12 +1,12 @@
-const Teams = (selectedTeam, handleTeamSelectionChange) => {
+const Teams = ({selectedTeam, handleTeamSelectionChange}) => {
   return (
     <select className='form-select form-select-lg' value={selectedTeam} onChange={handleTeamSelectionChange}>
-            <option value="TeamA">Team A</option>
-            <option value="TeamB">Team B</option>
-            <option value="TeamC">Team C</option>
-            <option value="TeamD">Team D</option>
+            <option value="TeamA">TeamA</option>
+            <option value="TeamB">TeamB</option>
+            <option value="TeamC">TeamC</option>
+            <option value="TeamD">TeamD</option>
           </select>
   )
 }
 
-export default Teams
+export default Teams;
